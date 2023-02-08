@@ -1,0 +1,56 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="modestosolar" translate="label" sortOrder="200">
+            <label>Modesto Solar</label>
+        </tab>
+        <section id="modestogoogleshopping" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Google Shopping</label>
+            <tab>modestosolar</tab>
+            <resource>ModestoSolar_GoogleShopping::settings</resource>
+            <group id="settings" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Google Shopping XML Feed?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="default_google_product_category" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Default Google Shopping Category</label>
+                    <comment>Google category to use for products in feed if not set on product level.</comment>
+                </field>
+                <field id="google_product_category_attribute" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Google Shopping Category</label>
+                    <comment>Attribute code used for Google Shopping Category</comment>
+                </field>
+                <field id="google_default_title" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <label>Title on Google Tittle Tag</label>
+                </field>
+                <field id="google_default_url" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <label>Url on Google link Tag</label>
+                    <comment>Should use http:// or https://</comment>
+                </field>
+                <field id="google_default_description" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <label>Description on Google Description Tag</label>
+                </field>
+                <field id="category_list" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Filter Google Shopping Feed by Category</label>
+                    <source_model>ModestoSolar\GoogleShopping\Model\Category\Source\CategoryRepository</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
