@@ -80,11 +80,12 @@ class Xmlfeed
         array_shift($allImages);
         $mediaPath = $this->storeManager->getStore()
             ->getBaseUrl(UrlInterface::URL_TYPE_MEDIA, true) . 'catalog/product';
+        $urlPath = $this->storeManager->getStore()->getBaseUrl().$product->getUrlKey();
 
         $xml = $this->createNode("g:id", $product->getSku(), true);
         $xml .= $this->createNode("g:title", $product->getName(), true);
         $xml .= $this->createNode("g:description", $description, true);
-        $xml .= $this->createNode("link", $product->getProductUrl(), true);
+        $xml .= $this->createNode("link", $urlPath, true);
 
         if ($product->getImage()) {
             $xml .= $this->createNode("g:image_link", $mediaPath . $product->getImage(), true);
