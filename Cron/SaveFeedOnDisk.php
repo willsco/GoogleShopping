@@ -5,12 +5,12 @@
  */
 declare(strict_types=1);
 
-namespace Magefox\GoogleShopping\Cron;
+namespace ModestoSolar\GoogleShopping\Cron;
 
-use Magefox\GoogleShopping\Helper\Data;
-use Magefox\GoogleShopping\Helper\Products as ProductsHelper;
-use Magefox\GoogleShopping\Model\Xmlfeed;
-use Magefox\GoogleShopping\Model\SaveFeed;
+use ModestoSolar\GoogleShopping\Helper\Data;
+use ModestoSolar\GoogleShopping\Helper\Products as ProductsHelper;
+use ModestoSolar\GoogleShopping\Model\Xmlfeed;
+use ModestoSolar\GoogleShopping\Model\SaveFeed;
 use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\App\Filesystem\DirectoryList;
