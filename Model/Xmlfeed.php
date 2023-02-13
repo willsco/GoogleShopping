@@ -75,6 +75,8 @@ class Xmlfeed
     public function buildProductXml($productId): string
     {
         $product = $this->productRepository->getById($productId);
+        $specialFromDate = $product->getSpecialFromDate();
+        $specialToDate = $product->getSpecialToDate();
         $description = $this->productFeedHelper->fixDescription($product->getDescription());
         $allImages = $product->getMediaGalleryEntries();
         array_shift($allImages);
@@ -131,6 +133,13 @@ class Xmlfeed
                     . ' ' . $this->productFeedHelper
                     ->getCurrentCurrencySymbol());
             }
+        }
+
+        if($specialToDate){
+            $xml .= $this->createNode(
+                'g:sell_on_google_sale_price_effective_date',
+                $this->helper->convertDateToIso8601($specialFromDate).'/'.$this->helper->convertDateToIso8601($specialToDate)
+            );
         }
 
         $xml .= $this->createNode(

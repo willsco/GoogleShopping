@@ -20,4 +20,9 @@ class Data extends AbstractHelper
         $description = preg_replace(['/{[^>]*}/', '#\[.*\]#'], '', $description);
         return str_replace('#html-body', '', $description);
     }
+
+    public function convertDateToIso8601($yourdate)
+    {
+        return date_format(date_create($yourdate), 'c');
+    }
 }
