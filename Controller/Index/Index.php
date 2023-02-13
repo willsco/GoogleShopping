@@ -36,6 +36,7 @@ class Index extends Action
         if (!empty($this->helper->getConfig('enabled'))) {
             $this->saveFeed->saveOnFilesystem();
             header("Content-Type: text/xml; charset=utf-8");
+            header("Cache-Control: no-cache, no-store, must-revalidate");
             echo $this->xmlFeed->getFeed();
         } else {
             $resultForward->forward('noroute');
